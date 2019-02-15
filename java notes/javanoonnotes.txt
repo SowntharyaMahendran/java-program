@@ -1,0 +1,24 @@
+STRONGLY TYPED PROGRAMMING LANGUAGE:
+The pgm lang.will test the type of var. during compile time phase.
+     EG:C,C++,java,C#,groovy
+WEAKLY TYPED PROGRAMMING LANGUAGE:
+The pgm lang.will test the type of var.during runtime phase
+     EG:js,groovy,scala,python..
+---------------------
+Thr variable type is diff. from value type.
+RULES:
+byte,shots.int,long----value type is by default is int(4 byte) 
+byte b=10(int)
+if there is a exess of 1 byte then it is call overflow.
+for addopting that one byte is called casting.
+by using casting there is a possiblity of loss of values.
+--->float ,double
+float is small,double is big
+EG:float f=100.89f----> this f is used to do conversion.
+EG:  double d=333.20
+---->char
+the character will be stored in 16 bit called uniq code character.
+STRING:
+Collection of character.
+EG: String name="sound";
+
