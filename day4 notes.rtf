@@ -1,0 +1,1855 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9\par
+Groovy:\par
+\par
+What is Groovy ? \par
+\par
+Groovy is Scripting language for jvm,which was created based \par
+JSR-223 Spec.\par
+\par
+JS-223 Goal:\par
+ Multiple languages can be used to build application which \par
+can be targeted JVM.\par
+\par
+JVM can understand only byte code.\par
+\par
+if a language compiler is able to compile down java byte code,can be executed on JVM.\par
+\par
+\par
+              L-1 L-2 L-3 L-4......\par
+                    |\par
+                   JVM\par
+List of JVM Languages:\par
+\par
+\par
+1.Clojure, a modern, dynamic, and functional dialect of the Lisp programming language.\par
+\par
+2.Groovy, a dynamic programming and scripting language\par
+  \par
+3.Jython, an implementation of Python\par
+\par
+4.Kotlin, a statically-typed language from JetBrains, the developers of IntelliJ IDEA.\par
+\par
+5.Scala, a statically-typed object-oriented and functional programming language.\par
+\par
+6.JavaScript,a dynamic object based ,functional programming language\par
+\par
+7.JRuby, an implementation of Ruby\par
+\par
+\par
+Groovy is one the jvm language choice.\par
+\par
+Groovy is programming language inspired from java,Ruby,Javascript,Perl, Smalltalk, Objective-C\par
+\par
+Groovy is Dynamic, static, strong, duck typed programming.\par
+\par
+Dynamic - Runtime\par
+static - compile time\par
+Strong - compile time\par
+duck - type conversion is implicit\par
+\par
+Groovy is object oriented,semin functional programming language.\par
+\par
+\par
+Programming languages:\par
+1.GPL - General Purpose Programming language\par
+  The language is design not specific to particular domain\par
+C,C++,Java,Java Script.\par
+\par
+2.DSL -  Domain Specific programming language.\par
+ The language is designed for specific use case or domain.\par
+HTML,PHP....\par
+\par
+DSL:readable business rules in your applications\par
+ move left,move right, \par
+ take 1 cup of milk add 2 gm sugar\par
+ shutdown machine-1 at 1 pm every day and restart after 2pm \par
+\par
+Machine Health Checkup:\par
+1.find Machine at all locations\par
+2.filter machines which are unhealth\par
+3.prepare report in pdf mail to healthCheckMaster@tcs.com\par
+4.do this every day at 1pm\par
+\par
+ "Groovy helps to build DSL's and can be integred with large application system".\par
+\par
+Core Features of Groovy Lanaguage:\par
+\par
+1.Closures\par
+2.builders\par
+3.runtime & compile-time meta-programming\par
+4.functional programming\par
+5.type inference and static compilation\par
+6.Integration with existing java stack.\par
+\par
+Groovy Eco System:\par
+.................\par
+Groovy is core programming language only.\par
+\par
+Web:\par
+  Dynamic Web Apps | RestFull Web Services\par
+1.Grails \par
+  Framework written using groovy.\par
+\par
+Build System:\par
+  1.ANT\par
+  2.Maven\par
+  3.Gradle\par
+  4.Grape\par
+\par
+2.Gradle\par
+   Build system for java written in groovy\par
+\par
+Testing Framework:\par
+ Junit\par
+3.Spock:\par
+  Spock is a testing and specification framework for Java and Groovy applications. What makes it stand out from the crowd is its beautiful and highly expressive specification language.\par
+\par
+Package Managers:\par
+NPM - javascript\par
+Nuget -MS .NET\par
+\par
+4.SDKMAN!  -Groovy\par
+\par
+\par
+5.Microservices:\par
+ Spring with Groovy\par
+ Micronaut  -Groovy\par
+\par
+///////////////////////////////////////////////////////////////\par
+Groovy : Setup:\par
+\par
+Groovy can be installed in many ways\par
+...................................\par
+1. Download a source or binary distribution.\par
+\par
+2.Use a package manager-sdkMan or bundle for your operating system.\par
+\par
+3.Grab the latest plugin for your IDE and follow the installation instructions.\par
+\par
+4.Find the latest source code in the Git repo (or the GitHub mirror).\par
+\par
+5.If you're using Docker, Groovy is available on Docker Hub.\par
+\par
+Min Req:\par
+\par
+JDK 1.8+\par
+\par
+\par
+Groovy Versions:\par
+\par
+Groovy 3.0 -   Still in testing\par
+\par
+Groovy 2.5.5 - Stable version\par
+///////////////////////////////////////////////////////////////\par
+Groovy Development Env:\par
+\par
+1.Groovy  Console\par
+2.Any IDE like Ecp,Idea,STS,VS Code,play ground,online editors.\par
+\par
+///////////////////////////////////////////////////////////////\par
+Groovy Tools:\par
+1.compiler : groovyc compile groovy into java bytecode\par
+2.REPL  - Read Evaulate Print Loop : Interactive cmd line tool.-groovysh : groovy shell - Wrapper to low level services.\par
+3.runtime : java or groovy\par
+   java Main  groovy Main.\par
+///////////////////////////////////////////////////////////////\par
+\par
+Groovy Programming:\par
+\par
+1.create Project\par
+\par
+Program types:\par
+\par
+1.Script Program\par
+2.Class based Program\par
+\par
+Program should be saved with FileName.groovy\par
+\par
+Compile And Exection Model:\par
+groovyc  FileName.groovy ----FileName.class--load on jvm\par
+\par
+\par
+Migration from java code\par
+\par
+HelloWorld.java\par
+\par
+public class HelloWorld \{\par
+\tab public static void main(String[] args) \{\par
+\tab\tab System.out.println("Hello World!");\par
+\par
+\tab\}\par
+\}\par
+\par
+HelloWorld.groovy\par
+\par
+println "Hello World";\par
+\par
+coding style:\par
+...........\par
+1.impertive - java\par
+2.declarative - groovy -Script Style.\par
+\par
+What is happening after compilation?\par
+\par
+println "hello";\par
+\par
+After compilation Groovy compiler writes a code like below\par
+\par
+\par
+import org.codehaus.groovy.runtime.InvokerHelper;\par
+\par
+class HelloWorld extends Script \{    \par
+                 \par
+    def run() \{                                 \par
+        println 'Groovy world!'  \par
+        println "Hey";               \par
+    \}\par
+    static void main(String[] args) \{           \par
+        InvokerHelper.runScript(HelloWorld, args)     \par
+    \}\par
+\}\par
+1.The HelloWorld class extends the groovy.lang.Script class\par
+\par
+2.groovy.lang.Script requires a run method returning a value\par
+  the script body goes into the run method\par
+\par
+3.the main method is automatically generated\par
+ \par
+4.and delegates the execution of the script on the run   method\par
+\par
+//////////////////////////////////////////////////////////////\par
+\par
+Groovy Language:\par
+...............\par
+\par
+1.Language Fundamentals\par
+2.Groovy Object orientations\par
+3.Groovy Closures and Functional Programming\par
+4.Groovy Meta Programming\par
+5.Groovy DSL\par
+6.Groovy and Builders\par
+7.Groovy and Collections\par
+8.Groovy and IO\par
+\par
+\par
+1.Language Fundamentals\par
+\par
+1.1.Type System,Literals,Variables\par
+1.2.Operators\par
+1.3.Control Structures\par
+1.4.Looping\par
+\par
+Type System,Literals,Variables:\par
+...................................................\par
+Groovy is dynamic,static typed programming language\par
+\par
+variables are other wise called "identifiers"\par
+\par
+syntax:\par
+ Strong typing:\par
+ type variable=value\par
+ int a =10;\par
+ \par
+eg:\par
+//Strong Typing\par
+int a =10;\par
+String name="Subramanian";\par
+println a;\par
+println "Name " + name;\par
+\par
+Dynamic Typing:\par
+...............\par
+Syntax:\par
+\par
+ def identifier=value\par
+\par
+//Dynamic type\par
+\par
+def myVar=1;//number\par
+println "Number " + myVar;\par
+myVar ="Subramanian"; //String\par
+println "String " + myVar\par
+myVar = true; //boolean\par
+println "Boolean " + myVar;\par
+\par
+\par
+Note: In groovy ; is optional\par
+\par
+/////////////////////////////////////////////////////////////\par
+\par
+Literals:\par
+........\par
+Strings:\par
+\par
+In java Strings are instance of java.lang.String class.\par
+\par
+In Groovy Strings are instance of groovy.lang.GString class\par
+and some times Strings are instance of java.lang.String\par
+\par
+packages in Groovy:\par
+\par
+Groovy supports all java packages\par
+Groovy provides its own packages as well\par
+groovy packages starts with groovy.\par
+groovy has default package like java - groovy.lang\par
+\par
+groovy.lang:\par
+  Groovy added new package called groovy.lang package\par
+"Core Groovy language classes for implementing data structures, closures, metadata and so forth".\par
+\par
+\par
+default Imports:\par
+...............\par
+java.io.*\par
+java.lang.*\par
+java.math.BigDecimal\par
+java.math.BigInteger\par
+java.net.*\par
+java.util.*\par
+groovy.lang.*\par
+groovy.util.*\par
+\par
+///////////////////////////////////////////////////////////////\par
+Strings are collection of characters represented inside ""\par
+  -Java\par
+\par
+instance of :\par
+  Operator which test the type of variable.\par
+  instance of operator returns true or false \par
+    true - the variable belongs that type\par
+ name instanceof java.lang.String; //true\par
+\par
+def city="Chennai";\par
+println city instanceof java.lang.String; //true\par
+\par
+Note: \par
+1.Strings are enclosed within "(double quotes)" are instance of java.lang.String\par
+\par
+////////////////////////////////////////////////////////////\par
+Strings are collection of characters and special symbols\par
+ -Groovy - >GString\par
+\par
+Groovy has extended existing String and added new String features.\par
+\par
+GString class Structure:\par
+\par
+ java.lang.Object\par
+\tab |\par
+\tab groovy.lang.GroovyObjectSupport\par
+\tab\tab |\par
+\tab\tab groovy.lang.GString\par
+\par
+String Declaration:\par
+1.double quotes\par
+ def name = "Subramanian";\par
+ println name;\par
+instance of java.lang.String\par
+\par
+2.single quotes\par
+Note: in groovy single quotes also String only,no character by default.\par
+def state='Tamil Nadu';\par
+println state instanceof java.lang.String;\par
+def gender ='M';\par
+println gender instanceof java.lang.String;\par
+\par
+3.Multi line Strings:triple single quote Strings\par
+Java : "" +\par
+Groovy : '''\par
+\par
+//Multiline:java style\par
+\par
+def doc= "<html>"+\par
+\tab\tab "<head>"+\par
+\tab\tab "<title>"+\par
+\tab\tab "Groovy" +\par
+\tab\tab "</title>"+\par
+\tab\tab "</head>"+\par
+\tab\tab "<body>" +\par
+\tab\tab "<h2>Welcome</h2>" +\par
+\tab\tab "</body></html>";\par
+println doc;\par
+//Multiline:Groovy Style\par
+doc =''' \par
+<html>\par
+<head>\par
+<title>\par
+  Welcome\par
+</title>\par
+<body>\par
+ <h1>Welcome</h1>\par
+</body>\par
+</html>\par
+''';\par
+println doc\par
+println doc instanceof java.lang.String;\par
+\par
+\par
+4.Multi line Strings:triple double quote Strings\par
+Groovy : """\par
+doc = """\par
+<html>\par
+<head>\par
+<title>\par
+  Welcome\par
+</title>\par
+<body>\par
+ <h1>Welcome</h1>\par
+</body>\par
+""";\par
+\par
+5.String interpolation \par
+  Remove string concatnation;\par
+java:\par
+ name + " " + age + " years old";\par
+groovy\par
+println "$\{name\} $\{age\} years old";\par
+\par
+\par
+""" vs single '''\par
+\par
+""" -  Multiline  with String interpolation\par
+''' -  Multiline with hardcoded strings.\par
+\par
+6.Slashy Strings\par
+\par
+Java style\par
+def quote = " Hello ! how are you? \\\\ i am fine what about you";\par
+println quote;\par
+def path = "c:\\\\groovy\\\\training\\\\demos ";\par
+println path;\par
+\par
+slashy Strings\par
+def myquote =/How are you! \\i am fine \\;/;\par
+println myquote;\par
+def mynewPath =/ c:groovy\\training\\demo\\ /;\par
+println mynewPath;\par
+\par
+dollar SlashyString:\par
+->Multi line + String interpolation\par
+\par
+  $// - multi line without interploation\par
+  $/""" xxx """/ multi line with interploation\par
+\par
+/////////////////////////////////////////////////////////////\par
+String Processing or Text Processing:\par
+/////////////////////////////////////\par
+\par
+String mydata = " hey \\; \\$ hello 0 1, how subramanian , 7m3 ";\par
+\par
+i want  to extract nos\par
+i want to extract special characters\par
+i want to only $\par
+\par
+Task: write a code-java to extract nos,spicial characters,$\par
+\par
+String Processing is most common task in programming.\par
+Unix os introduced text processing methods - Streams\par
+\par
+Unix text processing programs - utitility programs- dsl's\par
+ \par
+grep input | x | y | result\par
+\par
+///////////////////////////////////////////////////////////////\par
+Regular Expression:\par
+  Regular expression is dsl language to process strings / text\par
+  Regular expression works based on symbols called "Patterns"\par
+  Now a days every programming language supports Regular   Expression,language runtime and compiler provides regular   expression support.\par
+\par
+Regular expression in java:\par
+\par
+java.util.regex;\par
+\par
+Regular expression uses symbols\par
+ +\par
+ *\par
+ ~\par
+ \{\}\par
+ ?\par
+ \\+d -match /find any number in the string\par
+\par
+Java Regular Expression Implementation:\par
+\par
+package java.util.regex\par
+Matcher\par
+Pattern\par
+\par
+\par
+Regular expression in groovy: slashy Strings\par
+ \par
+\par
+import java.util.regex.Matcher\par
+import java.util.regex.Pattern;\par
+\par
+//Regular expression in java\par
+\par
+public class MainApp\{\par
+\tab public static void main(String[]args) \{\par
+\tab\tab println "Regular Expression-Java Implementation"\par
+\tab\tab String regex = "{{\field{\*\fldinst{HYPERLINK "\\\\\\\\d+"}}{\fldrslt{\\\\d+\ul0\cf0}}}}\f0\fs22 "; //"\\\\+d\\\\+d\\\\*d ^\\\\w+@[a-zA-Z_]+?\\\\.[a-zA-Z]\{2,3\}$\par
+\tab\tab String inputString ="hey  hello 0 1, how subramanian , 7m3";\par
+\tab\tab Matcher digitMatcher = Pattern.compile(regex).matcher(inputString);\par
+\tab\tab while(digitMatcher.find()) \{\par
+\tab\tab\tab println(digitMatcher.group());\par
+\tab\tab\}\par
+\tab\}\par
+\}\par
+//Regular Expression in Groovy\par
+//Step 1: declare input string \par
+println "Regular Expression-Groovy Implementation"\par
+\par
+String inputString ="hey  hello 0 1, how subramanian , 7m3";\par
+//Step 2: declare string inside slashy String\par
+//String regex = /\\d+/\par
+//Step 3:Compile\par
+//String regex = ~/\\d+/;\par
+//Step 4: Compile and Match  [a-b][A-B][0-9][$]\par
+def matcher =(inputString =~/\\d+/)\par
+while(matcher.find()) \{\par
+\tab println(matcher.group());\par
+\}\par
+\par
+\par
+\par
+//Quiz : Finding all dates in a String and getting\par
+//the date month and year can be as simple as below\par
+\par
+[dd-mm-yyy] -\par
+def dates = "28-02-1992 a b c  15-06-1982 15-Apr-1982";\par
+\par
+28-02-1992, 15-06-1982\par
+////////////////////////////////////////////////////////////\par
+Booleans:\par
+........\par
+in java booleans are represented by true or false literal.\par
+\par
+Groovy truthy and falsy values:\par
+...............................\par
+In Groovy everthing is true execept the below values\par
+\par
+1.boolean false\par
+2.0\par
+3."" (Empty string)\par
+4.null \par
+5.Empty list => []\par
+6.Empty Map  => [:]\par
+\par
+//java style\par
+boolean isEnabled =true;\par
+if(isEnabled) \{\par
+\tab println "Enabled";\par
+\}else \{\par
+\tab println "disabled";\par
+\}\par
+//short cut to if\par
+isEnabled ? println("Enabled") : println("Disabled");\par
+\par
+boolean isBig = 10 > 1;\par
+if(isBig) \{\par
+\tab println "Big";\par
+\}else \{\par
+\tab println "Smal";\par
+\}\par
+isBig ? println("Big") : println("Small");\par
+/////////////////////////////////////////////////////////////////////\par
+\par
+def name = "";\par
+name  ? println("Hey $name") : println("Sorry No Name");\par
+\par
+def count=-10;\par
+\par
+def counterStatus=count ? "You have counter" : "You have no Counter";\par
+println counterStatus\par
+\par
+def customer=null;\par
+name  ? println("Customer found") : println("No Customer");\par
+\par
+/////////////////////////////////////////////////////////////\par
+Numbers:\par
+.......\par
+\par
+In Groovy if you declare variable with "def" keyword the value \par
+can be only "Object".\par
+    No primitives\par
+\par
+def i=10 ;  Integer ins=new Integer(10); == Integer i =10;\par
+\par
+int i=10; //primitive\par
+\par
+def myvar; = default value? =null\par
+\par
+Type coericion : as\par
+you can use operator called "as" -Type coericion operator\par
+\par
+\par
+println Integer.MAX_VALUE\par
+println Long.MAX_VALUE;\par
+def price = 100000000000000000000000000000000000000000000000000000000000;\par
+println price instanceof Integer;\par
+println price instanceof BigInteger;\par
+\par
+//is it primtive?\par
+def count=20;\par
+\par
+/**\par
+ * Object myvar;\par
+ * myvar = new Integer(); //\par
+ * myvar.intValue() //\par
+ * myvar =new String();\par
+ * \par
+ * myvar =new Dog();\par
+ * \par
+ */\par
+def myvar;\par
+println myvar;\par
+myvar=100; //Integer\par
+myvar="Subramanian" //String\par
+\par
+///////////////////////////////////////////////////////////////\par
+\par
+//What if i want byte representation.\par
+\par
+//def code=(byte)20 //Integer -java style\par
+def code=20 as byte;\par
+println code instanceof Byte;\par
+def i=199 as short;\par
+println i instanceof Short;\par
+///////////////////////////////////////////////////////////////////\par
+println "Decimal Values"\par
+def stockValue =98.79;\par
+println "Is Double $\{stockValue instanceof Double\}"\par
+println "Is Float $\{stockValue instanceof Float\}"\par
+println "Is BigDecimal $\{stockValue instanceof BigDecimal\}"\par
+//float representation\par
+def fValue =stockValue as float;\par
+def fValue1= 10.89f;\par
+def dValue = stockValue as double;\par
+def dValue1= 89.87d;\par
+println "Is Float $\{fValue1 instanceof Float\}"\par
+println "Is Float $\{fValue instanceof Float\}"\par
+println "Is Double $\{dValue instanceof Double\}"\par
+println "Is Double $\{dValue1 instanceof Double\}"\par
+//////////////////////////////////////////////////////////////////\par
+//equals and == operator with numbers\par
+def x =100 as Byte;\par
+def y =100;\par
+def equalResult =  (x==y) ? "Equal" : "Not Equal";\par
+def equalsRes =  x.equals(y) ? "Equals" : "Not Equals"\par
+println equalResult;\par
+println equalsRes;\par
+\par
+////////////////////////////////////////////////////////////////\par
+Underscore numeric literals:\par
+\par
+long creditCardNumber = 1234_5678_9012_3456L\par
+long socialSecurityNumbers = 999_99_9999L\par
+double monetaryAmount = 12_345_132.12\par
+long hexBytes = 0xFF_EC_DE_5E\par
+long hexWords = 0xFFEC_DE5E\par
+long maxLong = 0x7fff_ffff_ffff_ffffL\par
+long alsoMaxLong = 9_223_372_036_854_775_807L\par
+long bytes = 0b11010010_01101001_10010100_10010010\par
+///////////////////////////////////////////////////////////////\par
+\par
+Operators:\par
+..........\par
+Assigment Operator\par
+  -To assign iteral to variable.\par
+\par
+1.Single assigment\par
+2.Multiple assigment\par
+\par
+\par
+//Assignment =\par
+def a =10; // Single Assignment\par
+println a;\par
+\par
+def x=10,y=20,z=10; //multiple assignment :java style\par
+println "$x $y $z"\par
+//groovy style multiple assigment\par
+def (x1, y1, d) = [10, 20, 9];\par
+println "$x1 $y1 $d"\par
+\par
+def (status,today,counter) = [true, "02-02-19", 1];\par
+println "$status $today $counter";\par
+\par
+//extra values are left\par
+def (one,two) = [1,2,3,4,5];\par
+println "$one $two";\par
+\par
+//lesser values but extra variable and its value is null\par
+def(xy,xz,xa) = [1,3];\par
+println "$xy $xz $xa";\par
+\par
+//def (name,age,city); //error\par
+def (name,age,city)=[];\par
+println "$name $age $city"\par
+\par
+//////////////////////////////////////////////////////////////\par
+Arithmetic operators:\par
+\par
+ +\par
+ -\par
+ *\par
+ /\par
+ %\par
+ ** - power operator\par
+\par
+//Arithmetic operations\par
+\par
+def (a,b)=[10, 10];\par
+def addResult =  a + b; // imperative style\par
+//def addRes = a.plus(b); //declarative sytle dsl\par
+def addRes = a.plus b\par
+def minRes = a.minus b\par
+def mulRes = a.multiply b;\par
+def divRes = a.div b;\par
+def powerResult  =  a ** b;\par
+def powerRes = a.power b;\par
+println "Add Result is $addResult"\par
+println "Add Result is $addRes"\par
+println "minRes Result is $minRes"\par
+println "mul Result is $mulRes"\par
+println "divRes Result is $divRes"\par
+println "divRes Result is $divRes"\par
+println "powerResult Result is $powerResult $powerRes"\par
+\par
+///////////////////////////////////////////////////////////\par
+\par
+Relational Operators\par
+==  equal\par
+!= different\par
+< less than\par
+<=less than or equal\par
+>greater than\par
+>=greater than or equal\par
+\par
+//Relational Operators : similar to java\par
+def a =10;\par
+def b =10;\par
+println a == b;\par
+println a < b;\par
+println a <= b;\par
+println a > b;\par
+println a >=b;\par
+println a!=b;\par
+\par
+//////////////////////////////////////////////////////////\par
+\par
+Logical operators\par
+\par
+&&: logical "and"\par
+||: logical "or"\par
+!: logical "not"\par
+\par
+\par
+//Logical Operators\par
+\par
+\par
+def isActive = true;\par
+def isEnabled = true;\par
+println " && => " + isActive && isEnabled; //true\par
+println " || => " + isActive || isEnabled; //true\par
+println " !  => " +  !isEnabled; //false\par
+\par
+def name ="Subramanian"  //true\par
+def city ="Chennai";  //true\par
+println name && city;//?\par
+\par
+def start =0; //0 false\par
+def stop= 10; //10 true\par
+println start || stop; // true\par
+\par
+def isEmpty; //null : fALSE\par
+println !isEmpty; //!FALSE =>TRUE\par
+\par
+\par
+/////////////////////////////////////////////////////////////\par
+\par
+Tenary Operator: Which replaces complex if..else conditions\par
+\par
+ condition ? "Truthy Part" : "Falsy Part"\par
+   |\par
+ Condition is boolean or Truthy and falsy condition\par
+\par
+def isWorking = true;\par
+def hasProject =true;\par
+\par
+def status = (isWorking && hasProject) ? "Eligible" : "Not Eligible";\par
+println status;\par
+println "Hello"  ? "You have Message" : "You have no Message"\par
+def start=0;\par
+println start ? "U have started" : "You have not started"\par
+\par
+Elvis operator:\par
+..............\par
+The "Elvis operator" is a shortening of the ternary operator. One instance of where this is handy is for returning a 'sensible default' value if an expression resolves to false-ish\par
+\par
+ ?: =>Elvis operator\par
+\par
+//Elvis\par
+//Elvis Operator used for default value\par
+def counter; //null\par
+//if counter is false,then initalize 1 else the value of the counter\par
+println counter ?: 1;\par
+//////////////////////////////////////////////////////////////\par
+Regular expression operators:\par
+.............................\par
+\par
+Pattern Operator : ~\par
+~/pattern/ ->Pattern\par
+\par
+//~Pattern operator\par
+def pattern = ~/\\d+/\par
+println pattern instanceof Pattern\par
+\par
+\par
+Find operator:\par
+\par
+Alternatively to building a pattern, you can directly use the find operator =~ to build a java.util.regex.Matcher instance\par
+\par
+\par
+=~ ->Returns Matcher Instance\par
+\par
+def text="mytext"\par
+//=~ Find operator which returns Matcher\par
+def matcher = (text =~/\\d+/);\par
+println matcher instanceof Matcher; \par
+\par
+Match operator:\par
+..............\par
+\par
+ ==~ Matcher Operator : returns boolean\par
+ !=~ Matcher Operator : returns boolean\par
+//////////////////////////////////////////////////////////////\par
+Advanced Operators:\par
+1.Spread Operator\par
+2.Range Operator\par
+3.Spaceship Operator\par
+4.Subscript Operator\par
+5.Identity Operator\par
+6.Coercion Operator\par
+7.Call Operator\par
+8.Method Reference/ Pointer Operator\par
+\par
+ These operators are dicussed inside Object Oriented Programming\par
+///////////////////////////////////////////////////////////////\par
+ control Strctures,loops: same as java\par
+..............................................................\par
+\par
+Script Methods / functions:\par
+..........................\par
+\par
+Script : collection of variables and methods.\par
+ variables goes into Script Main class run method\par
+ methods goes into Script Main Class directly.\par
+\par
+def a=10;\par
+\par
+import org.codehaus.groovy.runtime.InvokerHelper;\par
+\par
+class HelloWorld extends Script \{    \par
+   def sayHello()\{\}\par
+                 \par
+    def run() \{    \par
+        def a=10;                             \par
+        println 'Groovy world!'  \par
+        println "Hey";   \par
+        sayHello()            \par
+    \}\par
+    static void main(String[] args) \{           \par
+        InvokerHelper.runScript(HelloWorld, args)     \par
+    \}\par
+\}\par
+\par
+methods:\par
+\par
+type methodName(Type arg)\{\par
+  method body\par
+ return\par
+\}\par
+\par
+def methodName(def arg)\{\par
+\par
+\}\par
+\par
+\par
+//java style\par
+void print() \{\par
+\tab println "Hello Java Style Print method"\par
+\}\par
+print();\par
+\par
+//with args,return values\par
+String printValue(String name) \{\par
+\tab return name;\par
+\}\par
+println(printValue("Subramanian"))\par
+//println(printValue(45))//Runtime error\par
+\par
+//Groovy style\par
+def  add(def a, def b) \{\par
+\tab return a.plus(b);\par
+\}\par
+println add(10,10) // int,int\par
+println add(10.5,10.5) //BigDecimal , BigDecimal\par
+println add(20.7f,10.4d) //float, double\par
+println add(10 as byte,10 as int) //byte,int\par
+\par
+//////////////////////////////////////////////////////////////\par
+//def getMessage() \{\par
+//\tab return "Hello";\par
+//\}\par
+def getMessage() \{\par
+\tab "Hello";\par
+\}\par
+println getMessage();\par
+/////////////////////////////////////////////////////////////\par
+//method with more body\par
+//Groovy methods always returns wether you return or not.-implicit return\par
+//statement will be there last line , will be return\par
+def calculateSalary() \{\par
+\tab def basicsalary =1000.00 as double;\par
+\tab def hra =1000.78 as double\par
+\tab def totalSalary = basicsalary.plus hra;\par
+\tab "TotalSalary is $totalSalary"\par
+\}\par
+println calculateSalary();\par
+/////////////////////////////////////////////////////////////////////\par
+//Default arg\par
+def getDomain(def domain="msn") \{\par
+\tab domain\par
+\}\par
+println getDomain("tcs")\par
+println getDomain();\par
+\par
+//////////////////////////////////////////////////////////////////\par
+\par
+//i want method to take n- number of parameters but i dont in advance how\par
+//many parameters i pass : Var...Args\par
+\par
+def logger(def ...message) \{\par
+\tab message\par
+\}\par
+println logger('welcome')\par
+println logger('hai','hello','welcome')\par
+\par
+//////////////////////////////////////////////////////////////////////\par
+//positional parameters\par
+def save(String fileName,int size,String author) \{\par
+\tab "$fileName $size $author"\par
+\}\par
+println save("customer.txt",10,"Ram")\par
+//changining position will throw error\par
+//println save(3,"test","Ram")\par
+////////////////////////////////////////////////////////////////////\par
+//Named Parameter: Parameter can be passed any order based on name\par
+//java.util.Map-Data Structure\par
+\par
+def delete(Map args,location) \{\par
+\tab "$args $location"\par
+\}\par
+println delete('tcs',isAllowed:true,author:'ram',fileName:'customer.txt')\par
+\par
+//////////////////////////////////////////////////////////////\par
+\par
+Groovy and Object Oriented Programming:\par
+\par
+1.Groovy uses Groovy Standards\par
+   ->Groovy Bean standards\par
+\par
+\par
+1.declare class\par
+2.create object\par
+\par
+class:\par
+\par
+1.Groovy classes are very similar to Java classes, and are compatible with Java ones at JVM level.\par
+\par
+2.They may have methods, fields and properties (think JavaBean properties but with less boilerplate).\par
+\par
+3.Classes and class members can have the same modifiers (public, protected, private, static, etc) as in Java with some minor differences at the source level\par
+\par
+The key differences between Groovy classes and their Java counterparts are:\par
+\par
+1.Classes or methods with no visibility modifier are automatically public (a special annotation can be used to achieve package private visibility).\par
+\par
+2.Fields with no visibility modifier are turned into properties automatically, which results in less verbose code, since explicit getter and setter methods aren\rquote t needed.\par
+\par
+3.Classes do not need to have the same base name as their source file definitions but it is highly recommended in most scenarios\par
+\par
+4.One source file may contain one or more classes (but if a file contains any code not in a class, it is considered a script). Scripts are just classes with some special conventions and will have the same name as their source file (so don\rquote t include a class definition within a script having the same name as the script source file).\par
+\par
+\par
+Fields  Declaration Rules:\par
+\par
+1.fields must be declared without any explicit modifer\par
+2.fields must have strong typing not def keyword\par
+3.As soon as you declare fields based on the above rules\par
+  groovy will generate setter and getter methods.\par
+\par
+class Customer \{\par
+\tab int id;\par
+\tab String firstName;\par
+\tab String lastName;\par
+\tab String city;\par
+\}\par
+4.Object properties must be accessed with Object access Operator directly  - customer.id ->Valid\par
+  Reason: Groovy internally dispatches calls via setter and   getter only.\par
+\par
+package com.tcs.igno.groovy.cls;\par
+\par
+//Object creation\par
+def customer = new Customer();\par
+//customer.setId(1);\par
+customer.id =1; //setter\par
+customer.firstName="Subramanian";\par
+customer.lastName="Murugan";\par
+customer.city = "Chennai";\par
+println  "Id $customer.id";\par
+println  "Name $customer.firstName $customer.lastName";\par
+println  "City $customer.city";\par
+\par
+//////////////////////////////////////////////////////////////\par
+\par
+Via constructors:\par
+\par
+java style : Positional Parameters\par
+package com.tcs.igno.groovy.cls\par
+\par
+class Customer \{\par
+\tab int id;\par
+\tab String firstName;\par
+\tab String lastName;\par
+\tab String city;\par
+\tab Customer()\{\par
+\tab\tab println "Default Constructor"\par
+\tab\}\par
+\tab Customer(int id,String firstName,String lastName,String city)\{\par
+\tab\tab this.id = id;\par
+\tab\tab this.firstName =firstName;\par
+\tab\tab this.lastName=lastName;\par
+\tab\tab this.city= city;\par
+\tab\}\par
+\tab Customer(int id,String firstName)\{\par
+\tab\tab this.id = id;\par
+\tab\tab this.firstName =firstName;\par
+\tab\tab\par
+\tab\}\par
+\}\par
+\par
+package com.tcs.igno.groovy.cls;\par
+\par
+//default constructor\par
+def customer;\par
+customer= new Customer();\par
+println  "Id $customer.id";\par
+println  "Name $customer.firstName $customer.lastName";\par
+println  "City $customer.city";\par
+\par
+//Arg Constructor:\par
+customer= new Customer(1,'Subramnain','Murugan','Chennai');\par
+println  "Id $customer.id";\par
+println  "Name $customer.firstName $customer.lastName";\par
+println  "City $customer.city";\par
+////////////////////////////////////////////////////////////\par
+\par
+HAS-A Relation - Dependency Injection:\par
+\par
+\par
+class Address\{\par
+\tab String doorNo;\par
+\tab String street;\par
+\tab String city;\par
+\}\par
+\par
+class Employee \{\par
+\tab Integer id;\par
+\tab String name;\par
+\tab //has-a\par
+\tab Address address;\par
+\}\par
+\par
+def employee = new Employee(id:2,name:'Subramanian',\par
+address:new Address(doorNo:'10',street:'9th street',city:'Chennai'));\par
+\par
+println "$employee.id $employee.name $employee.address.city"\par
+\par
+//////////////////////////////////////////////////////////////\par
+\par
+Static,final in groovy:\par
+\par
+final or static with final\par
+with or without type\par
+1.by default public\par
+2.setters and getters will not be generated -Recommended\par
+class Message \{\par
+ static final String SUCCESS='Success';\par
+\}\par
+println Message.SUCCESS\par
+//////////////////////////////////////////////////////////////\par
+methods:\par
+1.A method is defined with a return type or with the def keyword, to make the return type untyped.\par
+\par
+2.A method can also receive any number of arguments, which may not have their types explicitly declared.\par
+\par
+3.Java modifiers can be used normally, and if no visibility modifier is provided, the method is public.\par
+\par
+4.Methods in Groovy always return some value.  If no return statement is provided, the value evaluated in the last line executed will be returned.\par
+\par
+class Calculator \{\par
+\par
+\tab def add(def a, def b) \{\par
+\tab\tab a.plus(b);\par
+\tab\}\par
+\tab def subract(def a, def b) \{\par
+\tab\tab a.minus b;\par
+\tab\}\par
+\tab\par
+\}\par
+def calc = new Calculator();\par
+\par
+println calc.add(10, 10)\par
+println calc.add(10d, 20 as byte);\par
+println calc.subract(10, 2);\par
+\par
+\par
+Parameters and args\par
+\par
+class CustomerService \{\par
+\tab //positional parameter\par
+\tab def save(int id,String name) \{\par
+\tab\tab "$id $name"\par
+\tab\}\par
+\tab //Named parameter\par
+\tab def find(Map args) \{\par
+\tab\tab args\par
+\tab\}\par
+\tab //Named + positional parameters\par
+\tab def findAll(Map args,Integer key) \{\par
+\tab\tab "$args - $key"\par
+\tab\}\par
+\}\par
+\par
+def cust=new CustomerService();\par
+println cust.save(1, 'ram');\par
+println cust.find(id:1,city:'CHN')\par
+println cust.findAll(1,id:1,name:'Test',city:'chn')\par
+\par
+//////////////////////////////////////////////////////////////\par
+IS-A Relationship:\par
+.................\par
+Base classes:\par
+\par
+1.concrete class Inheritance\par
+2.Interface inheritance\par
+3.abstract class\par
+4.Trait\par
+\par
+Note:\par
+ Data sharing is similar as java\par
+ method overriding-runtime polymorphism\par
+ -make it method typed -args,return type\par
+  -protected\par
+\par
+package com.tcs.igno.groovy.isa;\par
+\par
+\par
+class Person \{\par
+\tab String firstName;\par
+\tab String lastName;\par
+\tab String middleName;\par
+\}\par
+class Employee extends Person\{\par
+\tab Integer id;\par
+\tab Double salary;\par
+\}\par
+class Customer extends Person\{\par
+\tab Integer custId;\par
+\tab Double invoiceValue;\par
+\}\par
+def emp = new Employee(id:1,firstName:'ram',salary:109.89);\par
+println "$emp.id $emp.firstName $emp.salary"\par
+\par
+def cust = new Customer(custId:1,firstName:'ram',invoiceValue:14409.89)\par
+println "$cust.custId $cust.firstName $cust.invoiceValue"\par
+\par
+///////////////////////////////////////////////////////////////\par
+Method Overriding:\par
+ Groovy takes care of Type casting dynamically.\par
+\par
+class Animal \{\par
+\tab void eat() \{\par
+\tab\tab println "Animal eats"\par
+\tab\}\par
+\}\par
+class Tiger extends Animal\{\par
+\tab void hunt() \{\par
+\tab\tab println "Tiger is hunting"\par
+\tab\}\par
+\}\par
+//def ani = new Tiger() //here type of ani is Object\par
+def ani = new Tiger() as Animal;\par
+ani.eat();\par
+ani.hunt()\par
+\par
+////////////////////////////////////////////////////////////\par
+interfaces:\par
+..........\par
+Similar to java interfaces:\par
+package com.tcs.igno.groovy.isa\par
+\par
+interface Greeter \{\par
+\tab void greet(String name)\par
+\}\par
+class SystemGreeter implements Greeter \{\par
+\par
+\tab @Override\par
+\tab void greet(String name) \{\par
+\tab\tab  println "$name"\par
+\tab\}\par
+\tab def shutdown() \{\par
+\tab\tab "System is shutingdown"\par
+\tab\}\par
+\par
+\}\par
+class DefaultGreeter \{\par
+\tab void greet(String name) \{ println "Hello $name" \}\par
+\}\par
+\par
+def greeter = new SystemGreeter() as Greeter;\par
+greeter.greet("Subramanian");\par
+println greeter.shutdown()\par
+\par
+//////////////////////////////////////////////////////////////\par
+Abstract classes:\par
+Similar to java\par
+\par
+package com.tcs.igno.groovy.isa\par
+\par
+abstract class Bird \{\par
+\tab abstract void fly();\par
+\tab def saveBirds() \{\par
+\tab\tab 'Save Birds From Hunters';\par
+\tab\}\par
+\}\par
+class Dove extends Bird \{\par
+\par
+\tab @Override\par
+\tab void fly() \{\par
+\tab\tab println "Dove flies"\par
+\tab\}\par
+\}\par
+\par
+package com.tcs.igno.groovy.isa;\par
+\par
+def bird = new Dove() as Bird;\par
+bird.fly();\par
+println bird.saveBirds()\par
+//////////////////////////////////////////////////////////////\par
+\par
+Trait:\par
+\par
+\par
+1.Traits are interfaces only\par
+2.Traits  are added groovy to make flexible interfaces.\par
+3.composition of behaviors\par
+4.runtime implementation of interfaces\par
+5.behavior overriding\par
+6.compatibility with static type checking/compilation\par
+\par
+\par
+Points:\par
+1.Trait can have private methods,fields\par
+2.Trait can implement another interfaces\par
+3.Trait can have instance properties\par
+4.Trait can be used for multiple inheritance\par
+\par
+Simple trait:\par
+Crow.groovy\par
+trait FlyingAbility\{\par
+\tab String fly() \{\par
+\tab\tab  "I'm flying!" \par
+\tab\}\par
+\}\par
+\par
+class Crow implements FlyingAbility\{\par
+\tab\par
+\}\par
+TraitTester.groovy\par
+def crow =new Crow();\par
+println crow.fly()\par
+\par
+/////////////////////////////////////////////////////////////\par
+Traits and Methods:\par
+1.trait allows normal methods with implementation\par
+2.trait allows abstract methods,we need to add abstract keyword\par
+3.traits may also define private methods. Those methods will     not appear in the implementations\par
+\par
+package com.tcs.igno.groovy.isa\par
+\par
+trait FlyingAbility\{\par
+\tab private def getFlyMessage() \{\par
+\tab\tab "I'm flying!"\par
+\tab\}\par
+\tab String fly() \{\par
+\tab\tab getFlyMessage()\par
+\tab\}\par
+\}\par
+trait EatingAbility \{\par
+\tab\par
+\tab abstract String eat();\par
+\}\par
+\par
+class Crow implements FlyingAbility,EatingAbility\{\par
+\par
+\tab @Override\par
+\tab public String eat() \{\par
+\tab\tab return "Crow eats "\par
+\tab\}\par
+\}\par
+\par
+def crow =new Crow();\par
+println crow.fly()\par
+println crow.eat()\par
+///////////////////////////////////////////////////////////////\par
+Mixing trait and Interfaces:\par
+...........................\par
+1.trait can implement an interface\par
+\par
+interface Named \{                                       \par
+    String name();\par
+\}\par
+trait Greetable implements Named \{  \par
+\tab String name() \{ 'Test' \} //overriding\par
+    String greeting() \{ "Hello, $\{name()\}!" \}\par
+\}\par
+class Client implements Greetable \{                     \par
+    String name() \{ 'Bob' \}                             \par
+\}\par
+\par
+def client = new Client();\par
+println client.greeting()\par
+///////////////////////////////////////////////////////////////\par
+Variable declaration inside interface and trait\par
+..............................................\par
+interface can have variables like\par
+ public static final type variable="Value"\par
+\par
+trait can have fields(instance variables like class)\par
+\par
+package com.tcs.igno.groovy.isa\par
+\par
+trait TPerson\{\par
+\tab String firstName;\par
+\tab String lastName;\par
+\tab String middleName;\par
+\}\par
+class  SuperMan implements TPerson\{\par
+\tab\par
+\}\par
+def superMan=new SuperMan(firstName:'Subramanian',middleName:'',lastName:'M');\par
+println "$superMan.firstName $superMan.middleName $superMan.lastName";\par
+\par
+/////////////////////////////////////////////////////////////////\par
+trait can have private fields:\par
+trait Like \{\par
+\tab private int count = 0\par
+\tab int count() \{\par
+\tab\tab count += 1; count\par
+\tab\}\par
+\}\par
+trait TPerson\{\par
+\tab String firstName;\par
+\tab String lastName;\par
+\tab String middleName;\par
+\}\par
+class  SuperMan implements TPerson,Like \{\par
+\}\par
+def superMan=new SuperMan(firstName:'Subramanian',middleName:'',lastName:'M');\par
+println "$superMan.firstName $superMan.middleName $superMan.lastName";\par
+println "Total Likes $\{superMan.count()\}"\par
+/////////////////////////////////////////////////////////////\par
+\par
+Dyamic method selection and traits:\par
+...................................\par
+Groovy has ability to intercept method invocation via special \par
+engine called "MOP"\par
+\par
+java flow\par
+foo.speak()-------->Object----called\par
+\par
+groovy flow\par
+foo.speak()------|------Object\par
+                 |\par
+          if method is present ---->Select Object and invoke\par
+\tab\tab  |\par
+          else\par
+                 |\par
+           it will throw groovy.lang.MissingMethodException\par
+\par
+ class Foo\{\par
+\par
+\tab //method\par
+\tab String methodMissing(String name, args) \{\par
+\tab\tab "$\{name\}!"\par
+\tab\}\par
+\}\par
+def foo =new Foo();\par
+println foo.sayHello()\par
+\par
+Duck Typing:\par
+...........\par
+In duck typing, an object's suitability is determined by the presence of certain methods and properties, rather than the type of the object itself.\par
+ \par
+  ->Object methods,properties can be added,removed during runtime.\par
+ ->Object methods,properties not decided based on Type of the\par
+ Object during compile time.\par
+\par
+package com.tcs.igno.groovy.isa;\par
+\par
+trait SpeakingDuck \{\par
+    String speak() \{ quack() \}                      \par
+\}\par
+class Duck implements SpeakingDuck \{\par
+    String methodMissing(String name, args) \{\par
+        "$\{name.capitalize()\}!"                     \par
+    \}\par
+\}\par
+\par
+def duck=new Duck();\par
+println duck.speak();\par
+///////////////////////////////////////////////////////////////\par
+Multiple inheritance conflicts:\par
+...............................\par
+\par
+1.traits are used to implement multiple inheritance.\par
+2.if more than one trait has same behavior,which is implemented\par
+  by a class, then conflict will come\par
+3.In this case, the default behavior is that the method from the last declared trait in the implements clause wins\par
+\par
+trait Server \{\par
+\tab String exec() \{ 'Server' \}\par
+\}\par
+trait Client \{\par
+\tab String exec() \{ 'Client' \}\par
+\}\par
+class Proxy implements Client,Server \{\}\par
+\par
+def proxy=new Proxy();\par
+println proxy.exec();\par
+\par
+User conflict resolution:\par
+..........................\par
+In case this behavior is not the one you want, you can explicitly choose which method to call using the  "Trait.super.property" syntax. \par
+ \par
+package com.tcs.igno.groovy.isa;\par
+\par
+trait Server \{\par
+\tab String exec() \{\par
+\tab\tab 'Server'\par
+\tab\}\par
+\}\par
+trait Client \{\par
+\tab String exec() \{\par
+\tab\tab 'Client'\par
+\tab\}\par
+\}\par
+class Proxy implements Client,Server \{\par
+\tab String exec() \{\par
+\tab\tab Client.super.exec()\par
+\tab\}\par
+\}\par
+\par
+def proxy=new Proxy();\par
+println proxy.exec();\par
+///////////////////////////////////////////////////////////////\par
+Runtime implementation of traits:\par
+.................................\par
+Groovy also supports implementing traits dynamically at runtime.\par
+\par
+It allows you to "decorate" an existing object using a trait.\par
+\par
+\par
+trait  Shutdown\{\par
+\tab String shutdown() \{\par
+\tab\tab "Machine is shuttingdown";\par
+\tab\}\par
+\}\par
+\par
+trait  ReStart\{\par
+\tab String restart() \{\par
+\tab\tab "Machine is restarting";\par
+\tab\}\par
+\}\par
+class  PowerServer\{\par
+\}\par
+def pServer = new PowerServer() as Shutdown;\par
+println pServer.shutdown();\par
+def ps = pServer as ReStart;\par
+println ps.restart();\par
+\par
+//or\par
+def newServer = new PowerServer();\par
+def apis = newServer.withTraits(Shutdown,ReStart)\par
+println apis.shutdown();\par
+println apis.restart();\par
+\par
+///////////////////////////////////////////////////////////////\par
+traits and Dynamic delegation via super keyword:\par
+...............................................\par
+\par
+Objective: Boost existing Object behaviour with your own\par
+logic along with existing logic\par
+\par
+In java to represent strings we have three objects\par
+1.java.lang.String - Immutable Strings - any changes on Strings\par
+ creates new String Object every time\par
+2.java.lang.StringBuilder - Mutable Strings- any changes on Strings only object is modified.\par
+3.java.lang.StringBuffer -A thread-safe, mutable sequence of characters.\par
+\par
+Use case : String Builder\par
+\par
+package com.tcs.igno.groovy.isa;\par
+\par
+trait Filtering \{\par
+\tab\par
+\tab StringBuilder append(String str) \{\par
+\tab\tab def subst = str.replace('o','')\par
+\tab\tab super.append(subst)\par
+\tab\}\par
+\tab String toString() \{ super.toString() \}\par
+\}\par
+\par
+def sb = new StringBuilder().withTraits Filtering\par
+sb.append('Groovy')\par
+sb.append('Groovy')\par
+sb.append('Groovy')\par
+sb.append('Groovy')\par
+\par
+println sb.toString() \par
+\par
+///////////////////////////////////////////////////////////////\par
+Static variables ,Methods Inside Trait:\par
+.......................................\par
+trait TestHelper \{\par
+\tab public static boolean CALLED = false\par
+\tab static def init() \{\par
+\tab\tab CALLED = true\par
+\tab\}\par
+\}\par
+class MachineTest implements TestHelper\{ \}\par
+println MachineTest.init()\par
+//////////////////////////////////////////////////////////////\par
+\par
+Can you create Object for Trait directly?\par
+no,if you try,groovy.lang.GroovyRuntimeException\par
+////////////////////////////////////////////////////////////\par
+SAM Type coericsion: Single Abstract method(SAM)\par
+................................................\par
+trait ServerGreeter \{\par
+\tab String greet() \{\par
+\tab\tab "Hello $name"\par
+\tab\}\par
+\tab abstract String getName() //name -getName\par
+\}\par
+//ServerGreeter greetings=new ServerGreeter();\par
+//println greetings.greet()\par
+ServerGreeter greeter = \{ 'Subramanian' \}//abs implementation\par
+println greeter.greet();\par
+//////////////////////////////////////////////////////////////\par
+Closures: \par
+Functional Programming in Groovy:\par
+\par
+1.functional is all about what is it instead of how it is?\par
+2.It is paradigm to build application\par
+3.groovy is object oriented , functional pl.\par
+4.Functional programming features implemented via "Closure"\par
+\par
+What is closure?\par
+  Closure is code block.\par
+  Closure is function / method.\par
+  Closure is like literals - numbers,strings,boolean,Objects\par
+   ->literals can be assigned to a variable, \par
+     can be passed to a function as arg\par
+     can be returned from a another function\par
+\par
+  "Closure is free code"\par
+\par
+what if a method is literal?\par
+\par
+def i = 10\par
+def name ="ram"\par
+def isactive =true;\par
+\par
+def method = \{ \}\par
+\par
+The closure variable is used invoke method\par
+\par
+def sayHello = \{println "Hello Closure"\};\par
+//call\par
+sayHello()\par
+........................................................\par
+\par
+basic closure\par
+ \{ args -> body \}\par
+\par
+package com.tcs.igno.closure;\par
+\par
+//Closure with Args + default value\par
+//Multiple parameter\par
+def add = \{def a=0,def b=0 ->\par
+\tab def result = a.plus b\par
+\tab println "$result"\par
+\}\par
+add(10,10)\par
+add();\par
+\par
+\par
+def greet;\par
+//Closure no arg , only body\par
+greet= \{->println "greet"\};\par
+greet();\par
+//Closure no arg , only body,skip arrow\par
+greet= \{println "greet"\};\par
+greet();\par
+\par
+//Single parameter\par
+def sayMyName\par
+//sayMyName = \{def name -> println "$name"\};\par
+//implicit arg name: it\par
+sayMyName = \{println "$it"\}\par
+sayMyName('Subramanian')\par
+///////////////////////////////////////////////////////////////////\par
+//Returning values\par
+\par
+def counter;\par
+counter = \{ return 10; \}\par
+println counter()\par
+//without return statement\par
+counter = \{10\};\par
+println counter()\par
+\par
+//parameter + return\par
+def likeAction;\par
+likeAction=\{like-> ++like\}\par
+println likeAction(1)\par
+likeAction = \{++it\}\par
+println likeAction(1);\par
+\par
+/////////////////////////////////////////////////////////////////\par
+//Typed parameter\par
+def isOdd = \{ int i -> i%2 != 0 \}\par
+println isOdd(1) ? "Odd Number" : "Even Number"\par
+////////////////////////////////////////////////////////////////////\par
+//without type\par
+def isEven = \{it%2 == 0 \}\par
+println isEven(10) ? "Even Number" : "Odd Number"\par
+///////////////////////////////////////////////////////////////////\par
+//Multi line\par
+def UserInput = \{\par
+\tab println "Enter Your Name";\par
+\tab def name = it.next()\par
+\tab println "Your Sweet name is $name";\par
+\}\par
+//UserInput(new Scanner(System.in))\par
+//////////////////////////////////////////////////////////////////////\par
+//Passing Closure as arg to function\par
+def adder(def a, def b) \{\par
+\tab a.plus b\par
+\}\par
+println adder(10,10)\par
+def x=10,y=10;\par
+println adder(x,y);\par
+\par
+//greet = hello = \{println "Hello"\};\par
+def doIt(def greet) \{\par
+\tab greet();\par
+\}\par
+//via variable:Closure\par
+def hello = \{println "Hello"\};\par
+doIt(hello);\par
+//directly we can pass closure\par
+doIt(\{println "Hai"\});\par
+\par
+//////////////////////////////////////////////////////////////////////\par
+//Closure as parameter with args\par
+def login(def validate) \{\par
+\tab validate('admin','admin')\par
+\}\par
+login(\{name,password->println "$name $password"\})\par
+///////////////////////////////////////////////////////////////////\par
+//Closure as parameter with args and return\par
+def register(def validate) \{\par
+\tab def userInfo=validate('admin','admin');\par
+\tab println userInfo;\par
+\}\par
+register(\{name,password->"$name $password"\})\par
+////////////////////////////////////////////////////////////////////\par
+//Return a Closure from a method\par
+/**\par
+ * 1.Closure must be returned by using return statement only the reason\par
+ *   is avoid confusion regarding \{\}\par
+ * @return\par
+ */\par
+def getInfo() \{\par
+\tab return \{ println "Info"\}\par
+\}\par
+def info=getInfo()\par
+info();\par
+//shortcut\par
+getInfo()()\par
+//////////////////////////////////////////////////////////////////\par
+//When Closure returns: params,returns\par
+\par
+def getMachineInfo(def info) \{\par
+\tab //\tab return \{def newInfo ->\par
+\tab //\tab\tab println "$info $newInfo"\par
+\tab //\tab\}\par
+\tab //return \{println "$info $it"\}\par
+\tab return \{"$info $it"\}\par
+\}\par
+println getMachineInfo('IBM')('Mainframe')\par
+\par
+////////////////////////////////////////////////////////////////////\par
+//Closure within closure\par
+\par
+def outter = \{\par
+\tab println "outer"\par
+\tab def inner = \{\par
+\tab\tab println "inner"\par
+\tab\tab def innerMost= \{ println "innerMost" \}\par
+\tab\tab innerMost();\par
+\tab\}\par
+\tab inner()\par
+\}\par
+outter();\par
+////////////////////////////////////////////////////////////////////\par
+//can i call nested closures outside?\par
+\par
+def suite= \{\par
+\tab println "$it"\par
+\tab //\tab def unit = \{ println "Unit" \}\par
+\tab //\tab return unit;\par
+\tab return \{\par
+\tab\tab println "$it";\par
+\tab\tab return \{ println "$it" \}\par
+\tab\}\par
+\};\par
+//def unit=suite();\par
+//unit()();\par
+suite("Suit")("Unit")("Atomic")\par
+//////////////////////////////////////////////////////////////////////\par
+//Closure inside a class\par
+class Shape\{\par
+\tab def getCordinate() \{\par
+\tab\tab return \{x,y,z->\par
+\tab\tab\tab "$x $y $z"\par
+\tab\tab\}\par
+\tab\}\par
+\}\par
+def s=new Shape()\par
+def result=s.getCordinate()\par
+println result(1,2,3)\par
+\par
+/////////////////////////////////////////////////////////////\par
+What is Representation of Closure ?\par
+\par
+Every Closure is object,instance of groovy.lang.Closure\par
+\par
+\par
+Typed Closure: Closure can be typed:Closure parameters,return values can be fixed with type\par
+\par
+\par
+Closure Object apis:\par
+\par
+1.call,call(params)\par
+   ->Used to call closure\par
+\par
+def greet = \{println "$it"\}\par
+//calling\par
+greet('hay') //----greet.call()\par
+greet.call('hello');\par
+\par
+//Functional programming apis:\par
+\par
+Curry: Partial functions\par
+\par
+Use case: loggerApi\par
+   ->message,date,author\par
+\par
+def greet = \{println "$it"\}\par
+//calling\par
+greet('hay') //----greet.call()\par
+greet.call('hello');\par
+println greet instanceof groovy.lang.Closure\par
+/////////////////////////////////////////////////////////////////////\par
+//Curry\par
+def log=\{ String type, Date createdOn, String msg ->\par
+\tab println "$createdOn, $type : $msg"\par
+\};\par
+//log('Info',new Date(),'The record is deleted')\par
+\par
+//curry\par
+def typeLog = log.curry("Info")\par
+//typeLog(new Date(),'The record is deleted')\par
+\par
+//curry\par
+def dateLog = typeLog.curry(new Date());\par
+dateLog('The record is deleted')\par
+//////////////////////////////////////////////////////////////////////\par
+//Left Curry: pass from left side to right side\par
+def nCopies = \{ int n, String str -> str*n \}\par
+def twice = nCopies.curry(2)\par
+println twice('tcs')\par
+/////////////////////////////////////////////////////////////////\par
+//Left Curry: pass from left to right\par
+def threetimes = nCopies.rcurry('tcs')\par
+println threetimes(3)\par
+////////////////////////////////////////////////////////////////////\par
+// Index based currying\par
+//In case a closure accepts more than 2 parameters,\par
+//it is possible to set an arbitrary parameter using ncurry\par
+def volume = \{ double l, double w, double h -> l*w*h \}\par
+def fixedWidthVolume = volume.ncurry(1, 2d, 4d) \par
+println fixedWidthVolume(2d)\par
+//////////////////////////////////////////////////////////////\par
+Composition:\par
+  Combining two or more closures getting one closure\par
+\par
+ "Closure composition corresponds to the concept of function composition, that is to say creating a new function by composing two or more functions (chaining calls)"\par
+\par
+  //Composition\par
+def one  = \{\par
+\tab it + 1\par
+\} \par
+def two = \{\par
+\tab it + 1\par
+\}\par
+def three = one << two\par
+//println one(two(4)) ==  one << two\par
+println three(4)\par
+///////////////////////////////////////////////////////////////\par
+Trampoline:Recursive algorithms are often restricted by a physical limit: the maximum stack height.\par
+\par
+For example, if you call a method that recursively calls itself too deep, you will eventually receive a StackOverflowException\par
+\par
+def factorial\par
+factorial = \{ int n, def accu = 1G ->\par
+    if (n < 2) return accu\par
+    factorial.trampoline(n - 1, n * accu)\par
+\}\par
+factorial = factorial.trampoline()\par
+//factorial = factorial\par
+println factorial(1000)\par
+///////////////////////////////////////////////////////////////\par
+Memoization:\par
+...........\par
+Memoization allows the result of the call of a closure to be cached.\par
+def fib\par
+fib = \{ long n -> n<2?n:fib(n-1)+fib(n-2) \}.memoize()\par
+println fib(25) // fast!\par
+}
+ 
